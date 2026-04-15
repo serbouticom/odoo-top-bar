@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Frontend template: inject announcement bar above the website header -->
+    <template id="announcement_bar_frontend" name="Announcement Bar" inherit_id="website.layout">
+        <xpath expr="//header[@id='top']" position="before">
+            <t t-set="announcement" t-value="request.env['medamine.announcement'].sudo().get_active_announcement()"/>
+            <t t-if="announcement">
+                <div id="announcement_bar"
+                     t-att-data-announcement-id="announcement.id"
+                     t-attf-style="background-color: #{announcement.bg_color}; color: #{announcement.text_color};"
+                     class="announcement-bar">
+                    <div class="announcement-bar-inner container">
+                        <div class="announcement-bar-message" t-out="announcement.message"/>
+                        <t t-if="announcement.link_url">
+                            <a t-att-href="announcement.link_url"
+                               class="announcement-bar-btn"
+                               t-attf-style="border-color: #{announcement.text_color}; color: #{announcement.text_color};">
+                                <t t-out="announcement.link_label or 'Learn More'"/>
+                            </a>
+                        </t>
+                        <t t-if="announcement.is_closable">
+                            <button class="announcement-bar-close"
+                                    t-attf-style="color: #{announcement.text_color};"
+                                    aria-label="Close announcement">
+                                &amp;times;
+                            </button>
+                        </t>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>
