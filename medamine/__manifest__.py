@@ -35,7 +35,7 @@ Features
             "medamine/static/src/js/announcement_bar.js",
         ],
     },
-    "images": [],
+    "images": ["static/description/banner.png"],
     "installable": True,
     "application": False,
     "auto_install": False,
