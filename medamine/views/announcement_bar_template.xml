@@ -10,20 +10,20 @@
                      t-att-data-announcement-id="announcement.id"
                      t-attf-style="background-color: #{announcement.bg_color}; color: #{announcement.text_color};"
                      class="announcement-bar">
-                    <div class="announcement-bar-inner container">
-                        <div class="announcement-bar-message" t-out="announcement.message"/>
+                    <div class="announcement-bar-inner container d-flex align-items-center justify-content-center flex-wrap gap-3 position-relative py-2 px-5">
+                        <div class="announcement-bar-message flex-grow-1 text-center m-0" t-out="announcement.message"/>
                         <t t-if="announcement.link_url">
                             <a t-att-href="announcement.link_url"
-                               class="announcement-bar-btn"
-                               t-attf-style="border-color: #{announcement.text_color}; color: #{announcement.text_color};">
+                               class="btn btn-sm fw-semibold text-nowrap rounded-pill border-0 opacity-75-hover text-decoration-none"
+                               t-attf-style="color: #{announcement.text_color}; background-color: rgba(255,255,255,0.15);">
                                 <t t-out="announcement.link_label or 'Learn More'"/>
                             </a>
                         </t>
                         <t t-if="announcement.is_closable">
-                            <button class="announcement-bar-close"
+                            <button class="announcement-bar-close btn border-0 bg-transparent position-absolute end-0 top-50 translate-middle-y opacity-75 p-1 lh-1"
                                     t-attf-style="color: #{announcement.text_color};"
                                     aria-label="Close announcement">
-                                &amp;times;
+                                &#x2715;
                             </button>
                         </t>
                     </div>
