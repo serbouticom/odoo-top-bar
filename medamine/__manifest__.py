@@ -21,7 +21,7 @@ Features
 * Accessible from Website > Configuration > Announcement Bar
     """,
     "author": "Mohamed Amine Serbouti",
-    "website": "https://github.com/serbouticom",
+    "website": "https://www.serbouti.com/",
     "license": "LGPL-3",
     "depends": ["website"],
     "data": [
